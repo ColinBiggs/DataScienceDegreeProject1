@@ -1,0 +1,27 @@
+#Import necessary libraries
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score, mean_squared_error
+import test3 as t
+import seaborn as sns
+%matplotlib inlin
+
+#Plot Job Satisfaction for each working status:
+
+status_vals = df.groupby('HomeRemote').mean()['JobSatisfaction'].sort_values()
+
+status_vals.plot(kind="bar");
+plt.title("What is your Job Satisfaction?");
+
+#Pivot data:
+pivot = df.pivot_table(index=['FormalEducation'], values=['Salary'], columns=['HomeRemote'], aggfunc='mean')
+
+#Create stacked bar graph of salary and remote status for only respondents with Masters or Doctoral degrees
+
+Higher_Education = df[df["FormalEducation"].isin(["Master's degree","Doctoral degree"])]
+
+Higher_Education.groupby(['HomeRemote', 'FormalEducation'])['Salary'].mean().unstack().plot.bar()
