@@ -20,3 +20,12 @@ df.describe()
  df = df.dropna(subset=['Salary'], axis=0)
     y = df['Salary']
 
+#Plot number of responses for each working type
+status_vals = df['HomeRemote'].value_counts()
+
+#Plot mean of salary for each working status:
+
+status_vals = df.groupby('HomeRemote').mean()['Salary'].sort_values()
+
+status_vals.plot(kind="bar");
+plt.title("What is your Salary?");
