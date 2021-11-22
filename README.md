@@ -1,2 +1,6 @@
-# DataScienceDegreeProject1
-This project is the first of four to complete my Udacity Data Science Nanodegree. I am using a 2019 StackOverflow survey to answer the question: should you take a fully remote job? Enjoy!
+Installation 
+There should be no necessary libraries to rnu the code here beyond the Anaconda distribution of Python. The code should run using Python versions 3.*.
+
+Project Motivation
+For this project, I was interested in using Stack OVerflow data from 2017 to better understand:
+
